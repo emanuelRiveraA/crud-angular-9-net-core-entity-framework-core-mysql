@@ -1,4 +1,7 @@
 <h3 style="padding-top: 10px;">{{ accion}} Comentario</h3>
+<div class="spinner-border text-primary" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
 <br>
 <form [formGroup] = "comentarios" (ngSubmit)="guardarComentario()">
     <div class="form-row">

@@ -7,6 +7,9 @@
     </div>
 </div>
 <br>
+<div class="spinner-border text-primary" role="status" *ngIf="loading">
+  <span class="sr-only">Loading...</span>
+</div>
 <table class="table table-sm table-hover">
     <thead>
       <tr>
@@ -19,29 +22,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td><a [routerLink] = "['/ver/', '1']">Pelicula Rapido y Furioso</a></td>
-        <td>Joaquin</td>
-        <td>20/05/2020</td>
-        <td><button class="btn btn-primary btn-sm float-right" [routerLink] = "['/editar/', '1']">Editar</button></td>
-        <td><button class="btn btn-danger btn-sm float-right">Eliminar</button></td>
+      <tr *ngFor="let comentario of listComentarios">
+        <th scope="row">{{ comentario.id }}</th>
+        <td><a [routerLink] = "['/ver/', comentario.id]">{{ comentario.titulo }}</a></td>
+        <td>{{ comentario.creador }}</td>
+        <td>{{ comentario.fechaCreacion | date:'dd/MM/yyy'}}</td>
+        <td><button class="btn btn-primary btn-sm float-right" [routerLink] = "['/editar/', comentario.id]">Editar</button></td>
+        <td><button class="btn btn-danger btn-sm float-right" (click)="delete(comentario.id)">Eliminar</button></td>
       </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td><a [routerLink] = "['/ver/', '2']">Pelicula Gladeador</a></td>
-        <td>Marcelo</td>
-        <td>20/05/2020</td>
-        <td><button class="btn btn-primary btn-sm float-right" [routerLink] = "['/editar/', '2']">Editar</button></td>
-        <td><button class="btn btn-danger btn-sm float-right">Eliminar</button></td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td><a [routerLink] = "['/ver/', '3']">Pelicula Mercenarios</a></td>
-        <td>Joaquin</td>
-        <td>20/05/2020</td>
-        <td><button class="btn btn-primary btn-sm float-right" [routerLink] = "['/editar/', '3']">Editar</button></td>
-        <td><button class="btn btn-danger btn-sm float-right">Eliminar</button></td>
-      </tr>
-    </tbody>
+    </tbody> 
   </table>
