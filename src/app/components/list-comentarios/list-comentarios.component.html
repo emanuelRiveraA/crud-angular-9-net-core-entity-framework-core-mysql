@@ -1,0 +1,47 @@
+<div class="row" style="padding-top: 10px;">
+    <div class="col-lg-6">
+        <h3>Lista de comentarios</h3>
+    </div>
+    <div class="col-lg-6">
+        <button class="btn btn-primary float-right" [routerLink] = "['agregar']">Nuevo Comentario</button>
+    </div>
+</div>
+<br>
+<table class="table table-sm table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Titulo</th>
+        <th scope="col">Creador</th>
+        <th scope="col">Fecha</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">1</th>
+        <td><a [routerLink] = "['/ver/', '1']">Pelicula Rapido y Furioso</a></td>
+        <td>Joaquin</td>
+        <td>20/05/2020</td>
+        <td><button class="btn btn-primary btn-sm float-right" [routerLink] = "['/editar/', '1']">Editar</button></td>
+        <td><button class="btn btn-danger btn-sm float-right">Eliminar</button></td>
+      </tr>
+      <tr>
+        <th scope="row">2</th>
+        <td><a [routerLink] = "['/ver/', '2']">Pelicula Gladeador</a></td>
+        <td>Marcelo</td>
+        <td>20/05/2020</td>
+        <td><button class="btn btn-primary btn-sm float-right" [routerLink] = "['/editar/', '2']">Editar</button></td>
+        <td><button class="btn btn-danger btn-sm float-right">Eliminar</button></td>
+      </tr>
+      <tr>
+        <th scope="row">3</th>
+        <td><a [routerLink] = "['/ver/', '3']">Pelicula Mercenarios</a></td>
+        <td>Joaquin</td>
+        <td>20/05/2020</td>
+        <td><button class="btn btn-primary btn-sm float-right" [routerLink] = "['/editar/', '3']">Editar</button></td>
+        <td><button class="btn btn-danger btn-sm float-right">Eliminar</button></td>
+      </tr>
+    </tbody>
+  </table>

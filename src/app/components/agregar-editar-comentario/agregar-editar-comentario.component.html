@@ -1,0 +1,36 @@
+<h3 style="padding-top: 10px;">{{ accion}} Comentario</h3>
+<br>
+<form [formGroup] = "comentarios" (ngSubmit)="guardarComentario()">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault01">Titulo</label>
+        <input type="text" class="form-control" id="validationDefault01" placeholder="Titulo" value="" formControlName="titulo">
+        <span class="text-danger" *ngIf="comentarios.get('titulo').hasError('required') && comentarios.get('titulo').touched">
+            El titulo es requerido
+        </span>
+    </div>
+      <div class="col-md-6 mb-3">
+        <label for="validationDefault02">Creador</label>
+        <input type="text" class="form-control" id="validationDefault02" placeholder="Creador" value="" formControlName="creador">
+        <span class="text-danger" *ngIf="comentarios.get('creador').hasError('required') && comentarios.get('creador').touched">
+            El Creador es requerido
+        </span>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-12 mb-3">
+        <label for="validationDefault03">Texto</label>
+        <textarea class="form-control" name="texto" id="" cols="30" rows="10" placeholder="Ingresa aqui tu comentario :)" formControlName="texto"></textarea>
+        <span class="text-danger" *ngIf="comentarios.get('texto').hasError('required') && comentarios.get('texto').touched">
+            El texto es requerido
+        </span>
+      </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            <button class="btn btn-seccondary" [routerLink]="['/']">Cancelar</button>
+            <button class="btn btn-success float-right" [disabled]="comentarios.invalid">Aceptar</button>
+        </div>
+    </div>
+    
+  </form>
